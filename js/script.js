@@ -7,19 +7,12 @@ submitBtn.addEventListener("click", function(){
     //generazione biglietto
     hiddenTicket.classList.remove("d-none");
     
-    // //pulizia form ticket
-    // userNameInput.value = "";
-    // numberKmtrsInput.value = "";
-    // userAgeInput.value ="";
-    
     // selettori del dom
     const userNameInput = document.getElementById("user-name");
     const numberKmtrsInput = document.getElementById("nmbr-kilomtrs");
     const userAgeInput = document.getElementById("user-age");
     let finalPrice = "";
-    
-    console.log(userAgeInput);
-
+  
     //variabili appoggio della function
     const userName = userNameInput.value; //nome utente
     const numberKmtrs = numberKmtrsInput.value; //kilometr
@@ -46,7 +39,7 @@ submitBtn.addEventListener("click", function(){
 
     //randomizzazione carrozza e codice CP
     let randomCp = Math.floor(Math.random() * 100000);
-    let randomCarrozza = Math.floor(Math.random() * 9 + 1);
+    let randomCarrozza = Math.floor(Math.random() * 14 + 1);
 
 
     //inserimenti dati nella tabella
@@ -55,5 +48,11 @@ submitBtn.addEventListener("click", function(){
     document.getElementById("carrozza").innerHTML = `${randomCarrozza}`;
     document.getElementById("cp-code").innerHTML = `${randomCp}`;
     document.getElementById("final-price").innerHTML = `${finalPrice}€`;
+
+      
+    //pulizia form ticket
+    userNameInput.value = "";
+    numberKmtrsInput.value = "";
+    userAgeInput.value ="none";
 
 });
