@@ -1,11 +1,13 @@
 // variabili di appoggio
 const submitBtn = document.getElementById("submit-btn"); //buttone invio form
 const hiddenTicket = document.getElementById("hidden-ticket"); // tabella nascosta
+const creationForm = document.getElementById("creation-form"); // form che dovremo nascondere
 
 
 submitBtn.addEventListener("click", function(){
     //generazione biglietto
     hiddenTicket.classList.remove("d-none");
+    creationForm.classList.add("d-none");
     
     // selettori del dom
     const userNameInput = document.getElementById("user-name");
@@ -32,8 +34,8 @@ submitBtn.addEventListener("click", function(){
         finalPrice = (price * 0.60).toFixed(2);
         userBonus = "Over 65";
     }else {
-        finalPrice = price;
-        userBonus = "Nessuna offerta";
+        finalPrice = price.toFixed(2);
+        userBonus = "Tariffa standard";
     }
 
 
@@ -56,3 +58,9 @@ submitBtn.addEventListener("click", function(){
     userAgeInput.value ="none";
 
 });
+
+const refreshButton = document.querySelector('.refresh-button');
+function refreshPage(){
+    window.location.reload();
+}
+refreshButton.addEventListener('click', refreshPage)
